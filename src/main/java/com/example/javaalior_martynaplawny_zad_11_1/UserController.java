@@ -1,28 +1,23 @@
 package com.example.javaalior_martynaplawny_zad_11_1;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-@org.springframework.stereotype.Controller
-public class Controller {
+@Controller
+public class UserController {
 
     private final UserRepository userRepository;
 
-    public Controller(UserRepository userRepository) {
+    public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
-        User user1 = new User("Użytkownik", "Testowy", 1);
-        User user2 = new User("Użytkownik", "Testowy", 2);
-        User user3 = new User("Użytkownik", "Testowy", 3);
-        userRepository.add(user1);
-        userRepository.add(user2);
-        userRepository.add(user3);
     }
 
     @RequestMapping("/add")
-    public String add(@RequestParam(name = "imie") String name,
+    public String add(@RequestParam(name = "imie", required = false) String name,
                       @RequestParam(name = "nazwisko", required = false, defaultValue = "Nazwisko") String lastName,
                       @RequestParam(name = "wiek", required = false, defaultValue = "20") Integer age) {
 

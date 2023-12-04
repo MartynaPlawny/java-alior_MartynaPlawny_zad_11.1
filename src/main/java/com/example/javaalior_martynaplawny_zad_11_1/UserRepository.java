@@ -16,4 +16,13 @@ public class UserRepository {
     public List<User> getAll() {
         return userList;
     }
+
+    public UserRepository() {
+        User user1 = new User("Użytkownik", "Testowy", 1);
+        User user2 = new User("Użytkownik", "Testowy", 2);
+        User user3 = new User("Użytkownik", "Testowy", 3);
+        userList.add(user1);
+        userList.add(user2);
+        userList.add(user3);
+    }
 }
